@@ -1,0 +1,75 @@
+
+:root{
+  --bg:#050713;--panel:#0d1327;--panel2:#111a33;--line:#2d3d72;
+  --cyan:#4ceaff;--blue:#2f68ff;--yellow:#ffda4e;--pink:#ff5f9d;
+  --white:#f7fbff;--muted:#8592b6;--safe-bottom:max(12px,env(safe-area-inset-bottom));
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;min-height:100%;background:
+radial-gradient(circle at 50% -10%,#1a2758 0,#090d1d 38%,#04050c 100%);
+color:var(--white);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+body{overscroll-behavior:none;touch-action:manipulation}
+button{font:inherit;color:inherit}
+.app{width:min(760px,100%);min-height:100dvh;margin:auto;padding:12px 12px var(--safe-bottom);display:flex;flex-direction:column}
+.hud{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.eyebrow{display:block;color:var(--cyan);font-size:9px;font-weight:900;letter-spacing:.22em}
+h1{margin:2px 0 0;font-size:clamp(25px,7vw,46px);line-height:1;letter-spacing:.055em}
+h1 b{color:var(--yellow)}
+.hud-actions{display:flex;gap:8px}
+.round-btn,.deck-btn,.start-btn{border:1px solid rgba(255,255,255,.13);background:linear-gradient(#1b2749,#10172e);
+box-shadow:inset 0 1px rgba(255,255,255,.09),0 8px 20px rgba(0,0,0,.25)}
+.round-btn{width:43px;height:43px;border-radius:14px;font-size:18px;font-weight:900}
+.scorebar{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:9px 0}
+.scorebar>div{padding:7px 4px;text-align:center;background:rgba(13,19,39,.9);border:1px solid #26345f;border-radius:11px}
+.scorebar small{display:block;font-size:8px;letter-spacing:.16em;color:var(--muted);font-weight:900}
+.scorebar strong{display:block;margin-top:2px;font-size:clamp(12px,3.4vw,19px);letter-spacing:.07em}
+.cabinet{border:1px solid #34457c;border-radius:22px;padding:7px;background:linear-gradient(145deg,#111a32,#080c19);
+box-shadow:0 18px 50px rgba(0,0,0,.45)}
+.screen{position:relative;overflow:hidden;border-radius:16px;background:#020309;aspect-ratio:28/31;box-shadow:inset 0 0 28px #000}
+canvas{display:block;width:100%;height:100%;touch-action:none}
+.overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;
+background:radial-gradient(circle,rgba(20,31,65,.94),rgba(2,3,9,.97));opacity:0;pointer-events:none;transition:.2s}
+.overlay.visible{opacity:1;pointer-events:auto}
+.overlay h2{margin:8px 0;font-size:clamp(31px,8vw,58px);letter-spacing:.07em;color:var(--yellow);text-shadow:4px 4px #e94d70,0 0 26px rgba(255,218,78,.3)}
+.overlay p{max-width:440px;color:#bec8e7;line-height:1.5;margin:0 0 18px}
+.overlay small{margin-top:13px;color:#7f8bad}
+.hero-mark{width:60px;height:60px;border-radius:50%;background:var(--yellow);box-shadow:0 0 28px rgba(255,218,78,.5);position:relative}
+.hero-mark span{position:absolute;right:-2px;top:14px;border-left:28px solid #162143;border-top:16px solid transparent;border-bottom:16px solid transparent}
+.start-btn{min-width:190px;padding:13px 24px;border-radius:14px;background:linear-gradient(#ffe56e,#f5ba35);color:#161207;border-color:#ffe980;font-weight:1000;letter-spacing:.08em}
+.ready-text{position:absolute;left:0;right:0;top:57%;text-align:center;color:var(--yellow);font-weight:1000;letter-spacing:.14em;font-size:24px;
+text-shadow:0 0 16px rgba(255,218,78,.55);opacity:0;pointer-events:none}
+.ready-text.show{opacity:1}
+.control-deck{display:grid;grid-template-columns:1.2fr .8fr;gap:12px;margin-top:10px;padding:10px;background:rgba(13,19,39,.92);border:1px solid #293865;border-radius:20px}
+.joystick-zone{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+.joystick{position:relative;width:168px;height:168px;border-radius:50%;touch-action:none;user-select:none;
+background:radial-gradient(circle at 46% 42%,#26385f,#111a33 55%,#070b17 100%);border:2px solid #3a4e82;
+box-shadow:inset 0 0 30px rgba(0,0,0,.55),0 12px 28px rgba(0,0,0,.35)}
+.joystick:after{content:"";position:absolute;inset:20px;border-radius:50%;border:1px solid rgba(76,234,255,.18)}
+.joy-arrows span{position:absolute;color:#56668f;font-size:14px;font-weight:900}.joy-arrows .n{top:10px;left:50%;transform:translateX(-50%)}
+.joy-arrows .s{bottom:10px;left:50%;transform:translateX(-50%)}.joy-arrows .w{left:11px;top:50%;transform:translateY(-50%)}
+.joy-arrows .e{right:11px;top:50%;transform:translateY(-50%)}
+.joystick-knob{position:absolute;z-index:2;left:50%;top:50%;width:72px;height:72px;border-radius:50%;transform:translate(-50%,-50%);
+background:radial-gradient(circle at 38% 32%,#5874b6,#25375f 54%,#10182f);border:2px solid #6985c2;
+box-shadow:0 12px 22px rgba(0,0,0,.45),inset 0 2px 6px rgba(255,255,255,.16)}
+.joystick.active{border-color:var(--cyan);box-shadow:inset 0 0 30px rgba(0,0,0,.55),0 0 24px rgba(76,234,255,.2)}
+.joystick.active .joystick-knob{border-color:var(--cyan)}
+.direction-label{min-height:14px;color:var(--muted);font-size:9px;letter-spacing:.18em;font-weight:900}
+.deck-buttons{display:flex;flex-direction:column;justify-content:center;gap:9px}
+.deck-btn{border-radius:12px;padding:11px 8px;font-size:11px;font-weight:900;letter-spacing:.09em}
+.deck-btn.primary{border-color:#4464a0;background:linear-gradient(#22355f,#15213f)}
+.help-card{display:grid;gap:7px;padding:10px;border-radius:12px;border:1px solid #26345f;background:#0b1123;color:#8e9abc;font-size:10px}
+.help-card span{display:flex;align-items:center;gap:7px}.help-card i{display:inline-block}
+.pellet{width:5px;height:5px;border-radius:50%;background:#ffd3a2}.orb{width:11px;height:11px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
+.ghost{width:12px;height:11px;border-radius:7px 7px 2px 2px;background:var(--pink)}
+footer{display:flex;justify-content:space-between;gap:8px;padding:8px 3px 0;color:#647193;font-size:8px;letter-spacing:.09em}
+@media (max-width:520px){
+  .app{padding:8px 8px var(--safe-bottom)}
+  .scorebar{margin:7px 0}.cabinet{padding:5px;border-radius:17px}.screen{border-radius:12px}
+  .control-deck{grid-template-columns:1.25fr .75fr;padding:8px;gap:6px;margin-top:7px}
+  .joystick{width:145px;height:145px}.joystick-knob{width:64px;height:64px}
+  .deck-btn{padding:10px 5px;font-size:10px}.help-card{padding:8px 6px;font-size:9px}
+}
+@media (max-height:760px) and (orientation:portrait){
+  .eyebrow{display:none}h1{font-size:26px}.scorebar>div{padding:5px 3px}
+  .control-deck{grid-template-columns:1fr .78fr}.joystick{width:126px;height:126px}.joystick-knob{width:56px;height:56px}
+}

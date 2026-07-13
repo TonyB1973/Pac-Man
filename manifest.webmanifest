@@ -1,0 +1,25 @@
+{
+  "id": "maze-munch-2",
+  "name": "Maze Munch 2",
+  "short_name": "Munch 2",
+  "start_url": "./index.html?v=2",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#050713",
+  "theme_color": "#050713",
+  "orientation": "portrait-primary",
+  "description": "An original offline retro maze chase game.",
+  "icons": [
+    {
+      "src": "icons/icon.svg?v=2",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/apple-touch-icon.svg?v=2",
+      "sizes": "180x180",
+      "type": "image/svg+xml"
+    }
+  ]
+}
