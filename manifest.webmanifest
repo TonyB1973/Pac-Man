@@ -1,0 +1,23 @@
+{
+  "name": "Maze Munch",
+  "short_name": "Maze Munch",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#060812",
+  "theme_color": "#090b14",
+  "orientation": "portrait-primary",
+  "description": "A polished offline retro maze chase game.",
+  "icons": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/apple-touch-icon.svg",
+      "sizes": "180x180",
+      "type": "image/svg+xml"
+    }
+  ]
+}

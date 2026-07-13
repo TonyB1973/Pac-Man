@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+  <meta name="theme-color" content="#090b14">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="Maze Munch — an offline retro maze chase PWA.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <title>Maze Munch</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">RETRO ARCADE • OFFLINE PWA</div>
+        <h1>MAZE MUNCH</h1>
+      </div>
+      <div class="top-actions">
+        <button id="soundBtn" class="icon-btn" aria-label="Toggle sound">🔊</button>
+        <button id="pauseBtn" class="icon-btn" aria-label="Pause game">Ⅱ</button>
+      </div>
+    </header>
+
+    <section class="score-strip" aria-label="Game status">
+      <div><span>SCORE</span><strong id="score">000000</strong></div>
+      <div><span>HIGH</span><strong id="highScore">000000</strong></div>
+      <div><span>LEVEL</span><strong id="level">01</strong></div>
+      <div><span>LIVES</span><strong id="lives">●●●</strong></div>
+    </section>
+
+    <main class="game-card">
+      <div class="canvas-wrap">
+        <canvas id="gameCanvas" width="560" height="620" aria-label="Maze Munch game"></canvas>
+        <div id="overlay" class="overlay show">
+          <div class="logo-orb"></div>
+          <h2>MAZE MUNCH</h2>
+          <p>Clear the maze. Avoid the chasers.<br>Grab a power orb to turn the tables.</p>
+          <button id="startBtn" class="primary-btn">START GAME</button>
+          <small>Arrow keys, WASD, swipe, or the controls below</small>
+        </div>
+      </div>
+    </main>
+
+    <section class="controls-panel">
+      <div class="dpad" aria-label="Directional controls">
+        <button class="dir up" data-dir="up" aria-label="Move up">▲</button>
+        <button class="dir left" data-dir="left" aria-label="Move left">◀</button>
+        <div class="dpad-core"></div>
+        <button class="dir right" data-dir="right" aria-label="Move right">▶</button>
+        <button class="dir down" data-dir="down" aria-label="Move down">▼</button>
+      </div>
+
+      <div class="side-controls">
+        <button id="newGameBtn" class="secondary-btn">NEW GAME</button>
+        <button id="installBtn" class="secondary-btn" hidden>INSTALL APP</button>
+        <div class="legend">
+          <span><i class="dot pellet"></i> Pellet</span>
+          <span><i class="dot power"></i> Power orb</span>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>MAZE MUNCH v1.0</span>
+      <span>Designed for phone, tablet and desktop</span>
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
